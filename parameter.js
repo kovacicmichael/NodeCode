@@ -24,7 +24,7 @@ function test (value1, value2){
 	}else{
 	console.log("is not equal to");
 	}
-}
+};
 
 test(parseFloat(process.argv[2]), parseFloat(process.argv[3]));
 
