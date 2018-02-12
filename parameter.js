@@ -24,6 +24,10 @@ if(value1 % 7 === 0 && value2 % 7 === 0){
 	console.log("multiple of 7: " + false);
 };
 
+//or
+
+console.log(parseFloat(process.argv[2] % 7) + parseFloat(process.argv[3] % 7) === 0);
+
 
 // function test (value1, value2){
 // 	if(value1 === value2){
