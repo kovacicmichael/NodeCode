@@ -6,26 +6,33 @@
 
 
 
-// var value1 = parseFloat(process.argv[2]);
+var value1 = parseFloat(process.argv[2]);
 
-// var value2 = parseFloat(process.argv[3]);
-
-
-// if(value1 === value2){
-// 	console.log(parseFloat(process.argv[2]) + "is equal to" + parseFloat(process.argv[3]));
-// }else{
-// 	console.log(parseFloat(process.argv[2]) + "is not equal to" + parseFloat(process.argv[3]));
-// }
+var value2 = parseFloat(process.argv[3]);
 
 
-function test (value1, value2){
-	if(value1 === value2){
-	console.log("is equal to");
-	}else{
-	console.log("is not equal to");
-	}
+if(value1 === value2){
+	console.log(parseFloat(process.argv[2]) + " is equal to " + parseFloat(process.argv[3]));
+}else{
+	console.log(parseFloat(process.argv[2]) + " is not equal to " + parseFloat(process.argv[3]));
 };
 
-test(parseFloat(process.argv[2]), parseFloat(process.argv[3]));
 
-console.log(parseFloat(process.argv[2]) === parseFloat(process.argv[3]));
+if(value1 % 7 === 0 && value2 % 7 === 0){
+	console.log("Multiple of 7: " + true);
+}else{
+	console.log("multiple of 7: " + false);
+};
+
+
+// function test (value1, value2){
+// 	if(value1 === value2){
+// 	console.log("is equal to");
+// 	}else{
+// 	console.log("is not equal to");
+// 	}
+// };
+
+// test(parseFloat(process.argv[2]), parseFloat(process.argv[3]));
+
+// console.log(parseFloat(process.argv[2]) === parseFloat(process.argv[3]));
