@@ -12,11 +12,27 @@
 // Include the geocoder NPM package (Remember to run "npm install geocoder"!)
 var geocoder = require('geocoder');
 
-var location = process.argv[2]
+var location = [];
+
+//var city = process.argv[2];
+//var state = process.argv[3];
+
+//var address = city + state;
 
 
 
 // Take in the command line arguments
+
+for(var i = 2; i < process.argv.length; i++){
+
+	location.push(process.argv[i]);
+	//location = location + " " + process.argv[i];
+};
+
+location = location.join(" ");
+console.log("searching for " + location)
+
+
 
 
 
