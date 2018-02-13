@@ -14,3 +14,16 @@ fs.writeFile("write.txt", "Inception, Die Hard", function(err) {
   console.log("movies.txt was updated!");
 
 });
+
+
+
+
+//example of 
+// function actionA(name, type, callback) {
+// 	console.log(name, type);
+// 	callback(`The name is: ${name}`, `The type is: ${type}`);
+// }
+
+// actionA("Name", "Type", function (nameString, typeString) {
+// 	console.log(nameString);
+// });
