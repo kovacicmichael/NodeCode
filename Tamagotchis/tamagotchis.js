@@ -77,16 +77,16 @@ dog.bark = function(){
   console.log("woof, woof!")
 };
 dog.goOutside = function(){
-  if(dog.outside == false){
+  if(this.outside == false){
   console.log("yay i love the outdoors!");
   dog.outside = true;
   dog.bark();
   }
 };
 dog.goInside = function(){
-  if(dog.outside){
+  if(this.outside){
     console.log("Do we have to? Fine...")
-    dog.outside = false;
+    this.outside = false;
   }else{
     console.log("I am already inside...")
   }
@@ -98,7 +98,7 @@ cat.meow = function(){
   console.log("Meow, Meow!");
 };
 cat.destroyFurniture = function(){
-  if(cat.houseCondition > 0){
+  if(cat.houseCondition - 10 > 0){
   console.log("mwahahahwaha!");
   cat,houseCondition -=10;
   cat.bored = false;
