@@ -37,7 +37,7 @@ function Player(name, position, offense, defense){
   }
   this.badGame = function(){
     var coinflip = Math.floor(Math.random() * Math.floor(2));
-    if(coinflip == 0){
+    if(coinflip == 1){
       this.offense--
     }else{
       this.defense--
@@ -45,8 +45,7 @@ function Player(name, position, offense, defense){
   }
   this.printStats = function(){
     console.log("Name: " + this.name + "\nPosition: " + this.position +
-      "\nOffense: " + this.offense + "\nDefense: " + this.defense +
-      "\nGoodGame: " + this.goodGame + "\nBadGame: " + this.badGame);
+      "\nOffense: " + this.offense + "\nDefense: " + this.defense + "\n--------------");
   }
 }
 
@@ -57,33 +56,47 @@ function generatePlayer(){
         inquirer.prompt([
             {
               name: "name",
-              message: "What is your name?"
+              message: "Player's name?"
             },
             {
-              position: "position",
-              message: "What is your position?"
+              name: "position",
+              message: "Player's position?"
             },
             {
-              offense: "offense",
-              message: "What is your level of offense? (From 1-10)"
+              name: "offense",
+              message: "What is their level of offense? (From 1-10)",
+              validate: function(value){
+                if(isNaN(value) === false && parseInt(value) > 0 && parseInt(value) < 10){
+                  return true;
+                }
+                return false
+              }
             },
             {
-              defense: "defense",
-              message: "What is your level of defense? (From 1-10)"
-            },
-            {
-              starter: "starter",
-              confirm: true
+              name: "defense",
+              message: "What is their level of defense? (From 1-10)",
+              validate: function(value){
+                if(isNaN(value) === false && parseInt(value) > 0 && parseInt(value) < 10){
+                  return true;
+                }
+                return false
+              }
             }
+            // {
+            //   starter: "starter",
+            //   confirm: true
+            // }
           ]).then(function(answers){
-              var newPlayer = new Player(answers.name, answers.position, answers.offense, answers.defense);
+              var newPlayer = new Player(answers.name, answers.position, parseInt(answers.offense), parseInt(answers.defense));
             
-            if(this.starter){
+            if(starterArray.length < 2){
               playerArray.push(newPlayer)
               starterArray.push(newPlayer)
+              console.log(newPlayer.name + " was added to the Starters")
             }else{
               playerArray.push(newPlayer);
               subArray.push(newPlayer);
+              console.log(newPlayer.name + " was added to the Subs")
             }
 
             count++
@@ -91,18 +104,55 @@ function generatePlayer(){
             generatePlayer();
 
           })
-    };
+    }else{
+      //   * Once all of the players have been created, print their stats.
+      console.log("Your roster is filled!")
+      for(var i = 0; i < playerArray.length; i++){
+        playerArray[i].printStats(); 
+      }
+      console.log("Get ready to play!")
+      playGame(0);
+    }
 
 
 };
-
-
 generatePlayer();
 
 
-//   * Once all of the players have been created, print their stats.
 
 //   * Once your code is functioning properly, move on to create a function called "playGame" which will be run after all of the players have been created and will do the following:
+var teamOneScore = 0;
+//var teamTwoScore = 0;
+
+function playGame(roundNumber){
+
+  for(var i = 0; i < starterArray.length; i++){
+
+  defenseTotal = playerArray[0].defense + playerArray[i].defense;
+  offesnseTotal = playerArray[0].offense + playerArray[i].offense;
+  };
+
+    for(var i = 0; i < 10; i ++){
+      randomNumber1 = Math.floor(Math.random() * Math.floor(21));
+      randomNumber2 = Math.floor(Math.random() * Math.floor(21));
+
+        if(randomNumber1 < offesnseTotal){
+          teamOneScore++;
+        }if else(randomNumber2 > defenseTotal){
+          teamOneScore--;
+        }
+    };
+    inquirer.prompt([
+        {
+
+        }
+
+
+
+      ])
+
+
+}
 
 //     * Run 10 times. Each time the function runs:
 //       * Two random numbers between 1 and 50 are rolled and compared against the starter's offensive and defensive stats
