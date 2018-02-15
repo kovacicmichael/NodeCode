@@ -11,6 +11,7 @@
 //     * `goodGame`: Method which increases either the player's offense or defense property based upon a coinflip.
 //     * `badGame`: Method which decreases either the player's offense or defense property based upon a coinflip.
 //     * `printStats`: Method which prints all of the player's properties to the screen
+
 var inquirer = require("inquirer");
 
 var count = 0;
@@ -48,6 +49,8 @@ function Player(name, position, offense, defense){
       "\nGoodGame: " + this.goodGame + "\nBadGame: " + this.badGame);
   }
 }
+
+//   * Now create a program which allows the user to create 3 unique players; 2 starters and a sub. It should take as user input the name, position, offense, and defense of each player.
 
 function generatePlayer(){
     if(count < 3){
@@ -96,8 +99,6 @@ function generatePlayer(){
 
 generatePlayer();
 
-
-//   * Now create a program which allows the user to create 3 unique players; 2 starters and a sub. It should take as user input the name, position, offense, and defense of each player.
 
 //   * Once all of the players have been created, print their stats.
 

@@ -14,12 +14,15 @@
 // Grab or assemble the movie name and store it in a variable called "movieName"
 
 var request = require("request");
+
+
+
 var movieName = process.argv[2];
 
 for(var i = 2; i < process.argv.length; i++){
 	if(i > 2 && i < process.argv.length){
 
-	var movieName = process.argv[2] + "+" + process.argv[i];
+		var movieName = process.argv[2] + "+" + process.argv[i];
 	}else{
 		var movieName = process.argv[2];
 	}

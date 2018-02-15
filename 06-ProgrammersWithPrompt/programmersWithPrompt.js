@@ -1,5 +1,5 @@
 // dependency for inquirer npm package
-var inquirer = require("inquirer");
+r
 
 // constructor function used to create programmers objects
 function Programmer(name, position, age, language) {
