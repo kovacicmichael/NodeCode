@@ -1,4 +1,4 @@
-// In this activity we are going to make two constructors in two different files in which one constructor calls upon the other within it.
+;// In this activity we are going to make two constructors in two different files in which one constructor calls upon the other within it.
 
 // The first constructor function is called "Student" and has the following properties within it...
 
