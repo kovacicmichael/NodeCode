@@ -17,14 +17,14 @@ var request = require("request");
 
 
 
-var movieName = process.argv[2];
+var movieName = "";
 
 for(var i = 2; i < process.argv.length; i++){
 	if(i > 2 && i < process.argv.length){
 
-		var movieName = process.argv[2] + "+" + process.argv[i];
+		var movieName = movieName + "+" + process.argv[i];
 	}else{
-		var movieName = process.argv[2];
+		var movieName = process.argv[i];
 	}
 
 // ...
@@ -37,7 +37,8 @@ request(queryUrl, function(error, response, body){
 	if (!error && response.statusCode === 200) {
 		//console.log(body)
 		//console.log(JSON.parse(body));
-		console.log(JSON.parse(body));
+		//console.log(JSON.parse(body));
+		console.log(JSON.parse(body).Year);
 	}
 });
 
