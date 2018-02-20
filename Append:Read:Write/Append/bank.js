@@ -15,16 +15,15 @@ var balance = 0;
 if(operator === "deposit"){
 	deposit();
 }else if(operator === "withdraw"){
-	total = balance - withdraw
+	withdraw();
 }else if(operator === "total"){
 	total();
+}else if(operator === "lotto"){
+	lotto();
 }
-// else if(){
-
-// }
 
 
-console.log(total);
+//console.log(total);
 
 function total(){
 
@@ -55,7 +54,42 @@ function deposit(){
 		console.log("added total")
 		}
 	});	
-
-
 };
+
+function withdraw(){
+
+	fs.appendFile("bank.txt", "-" + value + ", ", function(err){
+		if(err){
+			console.log(err);
+		}else{
+			console.log("value withdrawn")
+		};
+	})
+};
+
+function lotto(){
+	var randomNumber = Math.floor(Math.random() * Math.floor(2));
+	//console.log(randomNumber);
+	if(randomNumber == 1){
+		fs.appendFile("bank.txt", "-0.25, ", function(err){
+			if(err){
+				console.log(err);
+			}else{
+				console.log("Sorry, you lost, play again soon!");
+			};
+		})
+	}else{
+		fs.appendFile("bank.txt", "2.00, ", function(err){
+			if(err){
+				console.log(err);
+			}else{
+				console.log("You won 2 dollars!");
+			};
+		});
+	};
+}
+
+
+
+
 
