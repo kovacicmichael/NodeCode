@@ -14,7 +14,7 @@ var number = [];
 function sortNumerically(a, b){
 	return a - b;
 };
-
+//parse int will gather the input and convert it to and integer
 for(var i = 2; i < process.argv.length; i++){
 	number.push(parseInt(process.argv[i]));
 };
